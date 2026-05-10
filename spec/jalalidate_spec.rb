@@ -146,4 +146,13 @@ describe JalaliDate do
     JalaliDate.new(time).strftime("%Z").should == time.zone
   end
 
+  it "should be able to parse different formats of jalali dates" do
+    JalaliDate.parse("1402/02/25").should == JalaliDate.new(1402,2,25)
+    JalaliDate.parse("۱۴۰۲-۰۲-۲۵ ۰۶:۰۱").should == JalaliDate.new(1402,2,25)
+    JalaliDate.parse("25 اردیبهشت 1402").should == JalaliDate.new(1402,2,25)
+    JalaliDate.parse("25 اردیبهشت 1402 ساعت 6:01:30").should == JalaliDate.new(1402,2,25)
+    JalaliDate.parse("1402.2.25").should == JalaliDate.new(1402,2,25)
+    JalaliDate.parse("1402/02/25T06:01:30").should == JalaliDate.new(1402,2,25)
+  end
+
 end
