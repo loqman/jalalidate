@@ -5,6 +5,7 @@ if RUBY_VERSION < '1.9'
   $KCODE = 'u'
 end
 require "date"
+require "jalalidate_parser"
 
 class JalaliDate
 
@@ -72,6 +73,12 @@ class JalaliDate
     # Return a JalaliDate object representing tomorrow's date in calendar
     def tomorrow
       JalaliDate.new(Date.today + 1)
+    end
+
+    # Return JalaliDate from a provided string
+    def parse(s)
+      date = JalaliDateParser.parse(s)
+      date[:jalali]
     end
 
     # Accpets a four digit number as the jalaliyear and returns true if that particular year
