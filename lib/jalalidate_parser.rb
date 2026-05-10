@@ -119,7 +119,7 @@ module JalaliDateParser
 
       validate!(year, month, day, hour, min, sec)
 
-      jdate = JalaliDate.new(year, month, day)
+      jdate = JalaliDate.new(year, month, day, hour, min, sec)
       gdate = jdate.to_gregorian.to_datetime
 
       return {
